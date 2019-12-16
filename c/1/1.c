@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
 	}
 
 	total = 0;
-	for(linelen = 0, line = NULL; (linelen = getline(&line, &linecap, fp)) > 0; ) {
+	for(linecap = 0, line = NULL; (linelen = getline(&line, &linecap, fp)) > 0; ) {
 		mass = atoi(line);
 		fuel = getfuel(mass);
 		//printf("%d\n", fuel);

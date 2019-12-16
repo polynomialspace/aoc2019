@@ -11,9 +11,8 @@ int getfuel(int mass) {
 int getcumulativefuel(int mass) {
 	int cum, total;
 
-	total = 0;
 	cum = getfuel(mass);
-	for (;cum > 0; cum = getfuel(cum)) {
+	for (total = 0;cum > 0; cum = getfuel(cum)) {
 		total += cum;
 	}
 
@@ -35,7 +34,7 @@ int main(int argc, char **argv) {
 	}
 
 	total = 0;
-	for(linelen = 0, line = NULL; (linelen = getline(&line, &linecap, fp)) > 0; ) {
+	for(linecap = 0, line = NULL; (linelen = getline(&line, &linecap, fp)) > 0; ) {
 		mass = atoi(line);
 		fuel = getcumulativefuel(mass);
 		//printf("%d\n", fuel);
